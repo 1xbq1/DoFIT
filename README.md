@@ -12,45 +12,48 @@ pip install -r requirements.txt
 
 ## Training
 
-To train the model(s) in the paper, run this command:
+To train the model(s) on F&G, M&G, G&F, run this command:
 
 ```train
 bash training_scripts/FG_run_sft.sh
+bash training_scripts/MG_run_sft.sh
+bash training_scripts/GF_run_sft.sh
 ```
-
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
 
 ## Evaluation
 
-To evaluate my model on ImageNet, run:
+To evaluate my model on FPB, FiQA-SA, TFNS, and NWGI, run:
 
 ```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
+cd evaluation/financial/
+sh scripts/fin_all.sh ../../output/fingpt-sentiment-train/full-50 <gpu>
 ```
+To evaluate my model on MedQA and MedMCQA, run:
 
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
+```eval
+medical domain environment - LMFlow:
+git clone -b v0.0.5 https://github.com/OptimalScale/LMFlow.git
+cd LMFlow
+conda create -n lmflow python=3.9 -y
+conda activate lmflow
+conda install mpi4py
+bash install.sh
+cd data && ./download.sh all && cd -
 
-## Pre-trained Models
-
-You can download pretrained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
-
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
-
-## Results
-
-Our model achieves the following performance on :
-
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
-
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
-
-
-## Contributing
-
->📋  Pick a licence and describe how to contribute to your code repository. 
+cd evaluation/medical/
+bash scripts/medqa.sh $path_to_your_model $gpu_ids $deepspeed_port
+bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
+```
+To evaluate my model on MT-Bench and Vicuna-Bench, run:
+```eval
+cd evaluation/open_ended/
+CUDA_VISIBLE_DEVICES=<gpu> python gen_model_answer_mt.py --base_model_path "../../output/alpaca-gpt4/full-200" --template "alpaca"
+python gen_judge_mtbench.py --judge_model gpt-4-1106-preview --model_list alpaca-gpt4_200
+python show_results_mt.py --model_list alpaca-gpt4_200 --judge_model gpt-4-1106-preview
+```
+```eval
+cd evaluation/open_ended/
+CUDA_VISIBLE_DEVICES=<gpu> python gen_model_answer.py --base_model_path "../../output/alpaca-gpt4/full-200" --template "alpaca" --bench_name "vicuna"
+python gen_judge_vicuna.py --model_answer alpaca-gpt4_200 --judger gpt-4
+python show_results_vicuna.py --eval_list gpt-4_alpaca-gpt4_200
+```
