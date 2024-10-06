@@ -12,12 +12,11 @@ pip install -r requirements.txt
 
 ## Training
 
-To train the model(s) on F&G, M&G, G&F, run this command:
+To train the model(s) on F&G, M&G, run this command:
 
 ```train
 bash training_scripts/FG_run_sft.sh
 bash training_scripts/MG_run_sft.sh
-bash training_scripts/GF_run_sft.sh
 ```
 
 ## Evaluation
@@ -43,17 +42,4 @@ cd data && ./download.sh all && cd -
 cd evaluation/medical/
 bash scripts/medqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
-```
-To evaluate my model on MT-Bench and Vicuna-Bench, run:
-```eval
-cd evaluation/open_ended/
-CUDA_VISIBLE_DEVICES=<gpu> python gen_model_answer_mt.py --base_model_path "../../output/alpaca-gpt4/full-200" --template "alpaca"
-python gen_judge_mtbench.py --judge_model gpt-4-1106-preview --model_list alpaca-gpt4_200
-python show_results_mt.py --model_list alpaca-gpt4_200 --judge_model gpt-4-1106-preview
-```
-```eval
-cd evaluation/open_ended/
-CUDA_VISIBLE_DEVICES=<gpu> python gen_model_answer.py --base_model_path "../../output/alpaca-gpt4/full-200" --template "alpaca" --bench_name "vicuna"
-python gen_judge_vicuna.py --model_answer alpaca-gpt4_200 --judger gpt-4
-python show_results_vicuna.py --eval_list gpt-4_alpaca-gpt4_200
 ```
