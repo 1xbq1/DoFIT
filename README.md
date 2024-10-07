@@ -1,6 +1,5 @@
-# DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting
+# DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting (NeurIPS 2024)
 
-This repository is the official implementation of [DoFIT] (NeurIPS 2024). 
 ![image](https://github.com/1xbq1/DoFIT/blob/main/assets/framework.png)
 
 ## Requirements
