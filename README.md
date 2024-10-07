@@ -43,3 +43,6 @@ cd evaluation/medical/
 bash scripts/medqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 ```
+
+## Acknowledgements
+This repo is based on [OpenFedLLM](https://github.com/rui-ye/OpenFedLLM), thanks to the original authors for their works!
