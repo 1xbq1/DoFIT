@@ -43,6 +43,17 @@ cd evaluation/medical/
 bash scripts/medqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 ```
+## Citation
+```
+@inproceedings{
+anonymous2024dofit,
+title={Do{FIT}: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting},
+author={Binqian Xu, Xiangbo Shu, Haiyang Mei, Zechen Bai, Basura Fernando, Mike Zheng Shou, Jinhui Tang},
+booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+year={2024},
+url={https://openreview.net/forum?id=FDfrPugkGU}
+}
+```
 
 ## Acknowledgements
 This repo is based on [OpenFedLLM](https://github.com/rui-ye/OpenFedLLM), thanks to the original authors for their works!
