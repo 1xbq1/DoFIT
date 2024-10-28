@@ -45,13 +45,11 @@ bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 ```
 ## Citation
 ```
-@inproceedings{
-Xu2024dofit,
-title={DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting},
-author={Binqian Xu, Xiangbo Shu, Haiyang Mei, Zechen Bai, Basura Fernando, Mike Zheng Shou, Jinhui Tang},
-booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-year={2024},
-url={https://openreview.net/forum?id=FDfrPugkGU}
+@inproceedings{Xu2024dofit,
+  title={DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting},
+  author={Binqian Xu, Xiangbo Shu, Haiyang Mei, Zechen Bai, Basura Fernando, Mike Zheng Shou, Jinhui Tang},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024}
 }
 ```
 
