@@ -1,4 +1,4 @@
-# DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting (NeurIPS 2024)
+# [DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting](https://openreview.net/pdf?id=FDfrPugkGU) (NeurIPS 2024)
 
 ![image](https://github.com/1xbq1/DoFIT/blob/main/assets/framework.png)
 
@@ -45,11 +45,10 @@ bash scripts/medmcqa.sh $path_to_your_model $gpu_ids $deepspeed_port
 ```
 ## Citation
 ```
-@inproceedings{Xu2024dofit,
+@inproceedings{xudofit,
   title={DoFIT: Domain-aware Federated Instruction Tuning with Alleviated Catastrophic Forgetting},
-  author={Binqian Xu, Xiangbo Shu, Haiyang Mei, Zechen Bai, Basura Fernando, Mike Zheng Shou, Jinhui Tang},
-  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-  year={2024}
+  author={Xu, Binqian and Shu, Xiangbo and Mei, Haiyang and Bai, Zechen and Fernando, Basura and Shou, Mike Zheng and Tang, Jinhui},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems}
 }
 ```
 
